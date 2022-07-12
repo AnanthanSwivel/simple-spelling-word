@@ -10,13 +10,11 @@ import { ReactNotifications } from 'react-notifications-component';
 export const App = (): JSX.Element => {
   return (
     <div>
-      {/* <Counter  /> */}
       <ReactNotifications />
       <BrowserRouter>
         <Routes >
           <Route  path="/" element={<Spell />} />
           <Route  path="/spell/:name" element={<SpellDetails />} />
-          {/* <Route  path="/" element={<Counter />} /> */}
         </Routes>
       </BrowserRouter>
     </div>

@@ -6,13 +6,13 @@ import { BiArrowBack } from 'react-icons/bi'
 import Favorite from '../../component/favorite';
 import Skeleton from 'react-loading-skeleton';
 import ConnectionIssue from '../../component/connection-issue';
+import Badge from '../../component/badge';
 const SpellDetails = () => {
     const dispatch = useAppDispatch();
     const wordDetails = useAppSelector(spelling);
     const status = useAppSelector(spellingStatus);
     let {name} = useParams();
     const navigate = useNavigate();
-
     useEffect(() => {
         name && dispatch(getSpellingDetailsApi(name));
     }, [name])
@@ -41,7 +41,7 @@ const SpellDetails = () => {
                     <div className="my-2">
                         <strong >Classes : </strong>
                         {wordDetails?.classes.map((val) => {
-                            return <>{val.name}</>
+                                return <><Badge name={val.name}/></>
                             }
                         )}
                     </div>
@@ -51,7 +51,7 @@ const SpellDetails = () => {
                         <div className="my-2">
                             <strong >Sub Classes : </strong>
                                 {wordDetails?.subclasses.map((val) => {
-                                    return <>{val.name}</>
+                                         return <><Badge name={val.name}/></>
                                     }
                                 )}
                         </div>
